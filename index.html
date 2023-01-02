@@ -18,9 +18,9 @@
     <img src="./Images/header.jpg" alt="header" style="width:100vw">
 
 
-    <div id="container">
-        <div id="search_poup"
-            style="width:50vw; height:50vh; background-color:whilte; z-index: 2; position: absolute; margin-top:18px; visibility: hidden;">
+    <div id="cont">
+        <div id="search-poup"
+            style="width:50vw; height:50vh; background-color:grey; z-index: 2; position: absolute; margin-top:18px; visibility: hidden;">
         </div>
         <div id="search-div">
             <h2 id="search-input1"
@@ -29,18 +29,36 @@
                 style=" font-family: 'Roboto', sans-serif; color:var(--main-color); cursor: pointer;">Clear</a>
         </div>
     </div>
+
+    <div id="container">
+
+    </div>
 </body>
 <script>
-    // console.log(document.getElementById("search_input1"));
-    document.getElementById("search-input1").addEventListener("click", (e) => {
+    console.log(document.getElementById("search-input1"));
+    console.log(document.getElementById("clear"));
+    document.querySelector("#search-input1").addEventListener("click", (e) => {
+        // console.log("input");
+        // debugger
         // console.log("input");
         // console.log("input");
         // console.log("input");
-        // console.log("input");
-        // console.log("input");
-        document.getElementById("search-input1").style.backgroundColor = "black"
+        console.log(document.getElementById("search-poup").style.visibility)
+        if (document.getElementById("search-poup").style.visibility === "visible")
+            document.getElementById("search-poup").style.visibility = "hidden";
+        else
+            document.getElementById("search-poup").style.visibility = "visible";
 
     });
+    // document.getElementById("container").addEventListener("mouseover", (e) => {
+    //     // console.log("input");
+    //     // console.log("input");
+    //     // console.log("input");
+    //     // console.log("input");
+    //     console.log("input");
+    //     document.getElementById("search-input1").style.backgroundColor = "black"
+
+    // });
 </script>
 
 

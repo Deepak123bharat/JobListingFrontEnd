@@ -40,6 +40,19 @@ body {
     /* padding:; */
 }
 
+#cont{
+    display: "flex";
+    flex-direction: "column";
+    gap:30px;
+    width: 80%;
+    margin:auto;
+    /* padding:; */
+}   
+
+#search-poup{
+    width:50vw; height:50vh; background-color:whilte; z-index: 2; position: absolute; margin-top:18px; visibility: visible;
+}
+
 .job-listing {
     display: flex;
     gap: 20px;
