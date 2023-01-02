@@ -135,12 +135,20 @@ body {
     border-radius: 5px;
 }
 .tech-stack-input>button {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
     background-color: var(--main-color);
     border: none;
+    padding:10px 10px 10px 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
 }
 .tech-stack-input>button:hover {
     background-color: #2D393A;
     color: white;
+    
 }
 .tech-stack-input > b{
     border-radius: 20px;
@@ -150,14 +158,21 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 10px   ;
+    padding: 10px;
     font-size: medium;
 }
 .tech-stack-input > p {
     background-color: #EEF7F6;
     color: #7cabad;
+    padding:10px 0 10px 10px;
     border-radius: 5px;
 }
+/* .tech-stack-input > button {
+    background-color: #EEF7F6;
+    color: #7cabad;
+    padding:0px 10px 10px 10px;
+    border-radius: 5px;
+} */
 
 
 

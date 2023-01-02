@@ -1,5 +1,6 @@
 // load the data from data.json and insert to the DOM
 var arr = [];
+var data = [];
 function loadData(data) {
   let container = document.getElementById("container");
   container.innerHTML = "";
@@ -48,10 +49,18 @@ function loadData(data) {
   container.innerHTML += containerData;
 }
 
+function fetchData() {
+  fetch("./data.json")
+    .then((response) => response.json())
+    .then((json) => {
+      data = [...json.jobs];
+    });
+}
+
 fetch("./data.json")
   .then((response) => response.json())
   .then((json) => {
-    let data = [...json.jobs];
+    data = [...json.jobs];
     loadData(json.jobs);
     let stringSkills = "";
     for (let i = 0; i < 5; i++) {
@@ -68,16 +77,15 @@ fetch("./data.json")
         button.innerText = "X";
         button.style = "height:40%";
         button.addEventListener("click", () => {
-          console.log("button clicked");
           div.outerHTML = "";
-          console.log(data);
 
           data = data.filter((ele) => {
             if (!ele.skills.includes(e.target.innerHTML)) {
               return ele;
             }
           });
-          loadData(data);
+          // loadData(data);
+          updateContainer();
         });
 
         let text = document.createElement("p");
@@ -97,31 +105,36 @@ fetch("./data.json")
 
         // loadData(data);
         togglePopup();
-        let allInput = document.getElementById("search-input1").childNodes;
-        console.log(allInput);
-        allInput = Array.from(allInput);
-        // console.log("data", data);
-        let out = [];
-        for (let j = 0; j < data.length; j++) {
-          for (let i = 1; i < allInput.length; i++) {
-            if (
-              data[j].skills.includes(
-                allInput[i].firstChild.firstChild.nodeValue
-              )
-            ) {
-              out.push(data[j]);
-            }
-          }
-        }
-        loadData(out);
-        console.log("data", out);
+        updateContainer();
       });
     });
   });
+document.getElementById("clear").addEventListener("click", () => {
+  document.getElementById("search-input1").innerHTML = "";
+  fetchData();
+  updateContainer();
+});
 
-function handleCross(e) {
-  console.log("hi");
-  console.log(e.target.innerHTML);
+function updateContainer() {
+  let allInput = document.getElementById("search-input1").childNodes;
+  allInput = Array.from(allInput);
+  let out = [];
+  fetchData();
+  for (let j = 0; j < data.length; j++) {
+    let shouldInclude = false;
+    for (let i = 1; i < allInput.length; i++) {
+      if (
+        data[j].skills.includes(allInput[i].firstChild.firstChild.nodeValue)
+      ) {
+        shouldInclude = true;
+        break;
+      }
+    }
+    if (shouldInclude) {
+      out.push(data[j]);
+    }
+  }
+  loadData(out);
 }
 
 function togglePopup() {
