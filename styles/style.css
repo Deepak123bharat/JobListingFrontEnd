@@ -134,19 +134,22 @@ body {
     color: #7cabad;
     border-radius: 5px;
 }
-.tech-stack-input>p>b>button {
+.tech-stack-input>button {
     background-color: var(--main-color);
     border: none;
 }
-.tech-stack-input>p>b>button:hover {
+.tech-stack-input>button:hover {
     background-color: #2D393A;
     color: white;
+}
+.tech-stack-input > b{
+    border-radius: 20px;
 }
 
 .tech-stack-input {
     display: flex;
     justify-content: flex-end;
-    gap:5px;
+    align-items: center;
     padding: 10px   ;
     font-size: medium;
 }

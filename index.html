@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body>
+<body onclick="togglePoup()">
     <img src="./Images/header.jpg" alt="header" style="width:100vw">
 
 
@@ -37,16 +37,24 @@
 </body>
 <script>
     document.querySelector("#search-input1").addEventListener("click", (e) => {
-        if (document.getElementById("search-poup").style.visibility === "visible")
-            document.getElementById("search-poup").style.visibility = "hidden";
-        else
+        console.log("hi")
+        if (document.getElementById("search-poup").style.visibility === "hidden")
             document.getElementById("search-poup").style.visibility = "visible";
+        else {
+            document.getElementById("search-poup").style.visibility = "hidden";
+
+        }
 
     });
     document.getElementById("clear").addEventListener("click", () => {
         document.getElementById("search-input1").innerHTML = "";
     });
+    function togglePoup() {
+        // console.log("hi")
+        // if (document.getElementById("search-poup").style.visibility === "visible")
+        //     document.getElementById("search-poup").style.visibility = "hidden";
 
+    }
 </script>
 
 

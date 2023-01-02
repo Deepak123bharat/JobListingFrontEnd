@@ -2,6 +2,7 @@
 var arr = [];
 function loadData(data) {
   let container = document.getElementById("container");
+  container.innerHTML = "";
   let containerData = "";
   data.forEach((element) => {
     let skills = "";
@@ -50,6 +51,7 @@ function loadData(data) {
 fetch("./data.json")
   .then((response) => response.json())
   .then((json) => {
+    let data = [...json.jobs];
     loadData(json.jobs);
     let stringSkills = "";
     for (let i = 0; i < 5; i++) {
@@ -59,22 +61,71 @@ fetch("./data.json")
     let skills = document.getElementsByClassName("tech-skills");
     Array.from(skills).forEach((element) => {
       element.addEventListener("click", (e) => {
-        console.log();
-        document.getElementById(
-          "search-input1"
-        ).innerHTML += `<div class="tech-stack-input">
-              <p><b>${e.target.innerHTML}<button style="height:100%">X</button></b></p>
-              
-            </div>`;
+        let div = document.createElement("div");
+        div.className = "tech-stack-input";
 
-        if (
-          document.getElementById("search-poup").style.visibility === "visible"
-        )
-          document.getElementById("search-poup").style.visibility = "hidden";
-        else
-          document.getElementById("search-poup").style.visibility = "visible";
+        let button = document.createElement("button");
+        button.innerText = "X";
+        button.style = "height:40%";
+        button.addEventListener("click", () => {
+          console.log("button clicked");
+          div.outerHTML = "";
+          console.log(data);
+
+          data = data.filter((ele) => {
+            if (!ele.skills.includes(e.target.innerHTML)) {
+              return ele;
+            }
+          });
+          loadData(data);
+        });
+
+        let text = document.createElement("p");
+        text.innerText = e.target.innerHTML;
+
+        div.appendChild(text);
+        div.appendChild(button);
+        document.getElementById("search-input1").append(div);
+
+        div.className = "tech-stack-input";
+        // +=
+
+        // `<div class="tech-stack-input">
+        //       <p><b>${e.target.innerHTML}<button style="height:100%" onClick="handleCross()">X</button></b></p>
+
+        //     </div>`;
 
         // loadData(data);
+        togglePopup();
+        let allInput = document.getElementById("search-input1").childNodes;
+        console.log(allInput);
+        allInput = Array.from(allInput);
+        // console.log("data", data);
+        let out = [];
+        for (let j = 0; j < data.length; j++) {
+          for (let i = 1; i < allInput.length; i++) {
+            if (
+              data[j].skills.includes(
+                allInput[i].firstChild.firstChild.nodeValue
+              )
+            ) {
+              out.push(data[j]);
+            }
+          }
+        }
+        loadData(out);
+        console.log("data", out);
       });
     });
   });
+
+function handleCross(e) {
+  console.log("hi");
+  console.log(e.target.innerHTML);
+}
+
+function togglePopup() {
+  if (document.getElementById("search-poup").style.visibility === "visible")
+    document.getElementById("search-poup").style.visibility = "hidden";
+  else document.getElementById("search-poup").style.visibility = "visible";
+}
