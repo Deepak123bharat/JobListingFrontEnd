@@ -24,7 +24,8 @@
         </div>
         <div id="search-div">
             <h2 id="search-input1"
-                style="width:90%; border-radius: 8px; height:100%; background-color: white; z-index: 10;"></h2>
+                style="width:90%; border-radius: 8px; height:100%; background-color: white; z-index: 10; display: flex; justify-content: flex-start; align-items: center;">
+            </h2>
             <a id="clear"
                 style=" font-family: 'Roboto', sans-serif; color:var(--main-color); cursor: pointer;">Clear</a>
         </div>
@@ -36,26 +37,16 @@
 </body>
 <script>
     document.querySelector("#search-input1").addEventListener("click", (e) => {
-        // console.log("input");
-        // debugger
-        // console.log("input");
-        // console.log("input");
-        // console.log("input");
         if (document.getElementById("search-poup").style.visibility === "visible")
             document.getElementById("search-poup").style.visibility = "hidden";
         else
             document.getElementById("search-poup").style.visibility = "visible";
 
     });
-    // document.getElementById("container").addEventListener("mouseover", (e) => {
-    //     // console.log("input");
-    //     // console.log("input");
-    //     // console.log("input");
-    //     // console.log("input");
-    //     console.log("input");
-    //     document.getElementById("search-input1").style.backgroundColor = "black"
+    document.getElementById("clear").addEventListener("click", () => {
+        document.getElementById("search-input1").innerHTML = "";
+    });
 
-    // });
 </script>
 
 

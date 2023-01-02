@@ -133,8 +133,30 @@ body {
     padding: 16px;
     color: #7cabad;
     border-radius: 5px;
-    
 }
+.tech-stack-input>p>b>button {
+    background-color: var(--main-color);
+    border: none;
+}
+.tech-stack-input>p>b>button:hover {
+    background-color: #2D393A;
+    color: white;
+}
+
+.tech-stack-input {
+    display: flex;
+    justify-content: flex-end;
+    gap:5px;
+    padding: 10px   ;
+    font-size: medium;
+}
+.tech-stack-input > p {
+    background-color: #EEF7F6;
+    color: #7cabad;
+    border-radius: 5px;
+}
+
+
 
 .tech-stack>p:hover {
     background-color: var(--main-color);
