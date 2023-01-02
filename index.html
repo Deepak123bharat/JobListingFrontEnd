@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <title>Job Listing</title>
+    <!-- <script type="application/json" src="./Scripts/index.js"></script> -->
+    <script src="./scripts/index.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <img src="./Images/header.jpg" alt="header" style="width:100vw">
+
+
+    <div id="container">
+        <div id="search_poup"
+            style="width:50vw; height:50vh; background-color:whilte; z-index: 2; position: absolute; margin-top:18px; visibility: hidden;">
+        </div>
+        <div id="search-div">
+            <h2 id="search-input1"
+                style="width:90%; border-radius: 8px; height:100%; background-color: white; z-index: 10;"></h2>
+            <a id="clear"
+                style=" font-family: 'Roboto', sans-serif; color:var(--main-color); cursor: pointer;">Clear</a>
+        </div>
+    </div>
+</body>
+<script>
+    // console.log(document.getElementById("search_input1"));
+    document.getElementById("search-input1").addEventListener("click", (e) => {
+        // console.log("input");
+        // console.log("input");
+        // console.log("input");
+        // console.log("input");
+        // console.log("input");
+        document.getElementById("search-input1").style.backgroundColor = "black"
+
+    });
+</script>
+
+
+</html>

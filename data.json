@@ -1,0 +1,84 @@
+{
+    "jobs": [
+        {
+            "id": "1",
+            "logo_url": "https://play-lh.googleusercontent.com/sVbozN-EsllWt4ejZhPv9UtaJvv5KIaMtTpCR9TVnNFT3OVbMDGb5pL7nLR7lUm4Rg",
+            "title": "Fullstack Developer",
+            "company": "Photosnap",
+            "date_posted": "5d ago",
+            "employment_type": "Full time",
+            "location": "Berlin",
+            "skills": [
+                "Frontend",
+                "Backend",
+                "JavaScript",
+                "HTML",
+                "CSS"
+            ]
+        },
+        {
+            "id": "2",
+            "logo_url": "https://play-lh.googleusercontent.com/sVbozN-EsllWt4ejZhPv9UtaJvv5KIaMtTpCR9TVnNFT3OVbMDGb5pL7nLR7lUm4Rg",
+            "title": "Junior Frontend Developer",
+            "company": "Photosnap",
+            "date_posted": "5d ago",
+            "employment_type": "Contract",
+            "location": "Jaipur",
+            "skills": [
+                "Java",
+                "JavaScript",
+                "C#",
+                "HTML",
+                "CSS"
+            ]
+        },
+        {
+            "id": "3",
+            "logo_url": "https://play-lh.googleusercontent.com/sVbozN-EsllWt4ejZhPv9UtaJvv5KIaMtTpCR9TVnNFT3OVbMDGb5pL7nLR7lUm4Rg",
+            "title": "Senior Frontend Developer",
+            "company": "Google",
+            "date_posted": "7d ago",
+            "employment_type": "Contract",
+            "location": "Delhi",
+            "skills": [
+                "HTML",
+                "JavaScript",
+                "Python",
+                "C++",
+                "CSS"
+            ]
+        },
+        {
+            "id": "4",
+            "logo_url": "https://play-lh.googleusercontent.com/sVbozN-EsllWt4ejZhPv9UtaJvv5KIaMtTpCR9TVnNFT3OVbMDGb5pL7nLR7lUm4Rg",
+            "title": "Software Engineer",
+            "company": "Facebook",
+            "date_posted": "2d ago",
+            "employment_type": "Full time",
+            "location": "Pune",
+            "skills": [
+                "JavaScript",
+                "C",
+                ".NET",
+                "Java",
+                "CSS"
+            ]
+        },
+        {
+            "id": "5",
+            "logo_url": "https://play-lh.googleusercontent.com/sVbozN-EsllWt4ejZhPv9UtaJvv5KIaMtTpCR9TVnNFT3OVbMDGb5pL7nLR7lUm4Rg",
+            "title": "Software Development Engineer",
+            "company": "Facebook",
+            "date_posted": "2d ago",
+            "employment_type": "Full time",
+            "location": "Jaipur",
+            "skills": [
+                "JavaScript",
+                "C",
+                ".NET",
+                "Java",
+                "CSS"
+            ]
+        }
+    ]
+}
