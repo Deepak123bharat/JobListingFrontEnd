@@ -52,8 +52,8 @@ fetch("./data.json")
     });
     container.innerHTML += containerData;
     let stringSkills = "";
-    for (let i = 0; i < 10; i++) {
-      stringSkills += `<div>${arr[i]}</div> <hr/>`;
+    for (let i = 0; i < 5; i++) {
+      stringSkills += `<div style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10;">${arr[i]}</div> <hr/>`;
     }
     document.getElementById("search-poup").innerHTML = stringSkills;
     console.log(arr);
