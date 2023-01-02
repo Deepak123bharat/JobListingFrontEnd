@@ -1,4 +1,7 @@
 // load the data from data.json and insert to the DOM
+
+var arr = [];
+
 fetch("./data.json")
   .then((response) => response.json())
   .then((json) => {
@@ -9,7 +12,10 @@ fetch("./data.json")
       let skills = "";
       element.skills.forEach((data) => {
         skills += `<p><b>${data}</b></p>`;
+        arr.push(data);
+        // console.log(data);
       });
+      // console.log(arr);
       let jobPost = `<div class="job-listing">
         <img class="job-listing-img"
             src="${element.logo_url}" />
@@ -41,7 +47,14 @@ fetch("./data.json")
             </div>
         </div>
     </div>`;
+
       containerData += jobPost;
     });
     container.innerHTML += containerData;
+    let stringSkills = "";
+    for (let i = 0; i < 10; i++) {
+      stringSkills += `<div>${arr[i]}</div> <hr/>`;
+    }
+    document.getElementById("search-poup").innerHTML = stringSkills;
+    console.log(arr);
   });
