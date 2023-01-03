@@ -60,7 +60,7 @@ function fetchData() {
 
 let stringSkills = "";
 for (let i = 0; i < 5; i++) {
-  stringSkills += `<div class="tech-skills" style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10;">${arr[i]}</div> <hr/>`;
+  stringSkills += `<div  style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10; color: #7cabad;">${arr[i]}</div> <hr/>`;
 }
 document.getElementById("search-poup").innerHTML = stringSkills;
 let skills = document.querySelector("#search-poup").childNodes;
@@ -99,7 +99,7 @@ function updateContainer() {
   if (data.length === 0) {
     fetchData();
   }
-  console.log("allinput", allInput);
+  console.log("allinput", allInput, data);
   for (let j = 0; j < data.length; j++) {
     let shouldInclude = true;
     for (let i = 1; i < allInput.length; i++) {
