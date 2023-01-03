@@ -1,6 +1,6 @@
+var arr = ["Frontend", "Backend", "JavaScript", "HTML", "CSS"];
+
 // load the data from data.json and insert to the DOM
-var arr = [];
-var data = [];
 function loadData(data) {
   let container = document.getElementById("container");
   container.innerHTML = "";
@@ -10,7 +10,6 @@ function loadData(data) {
     let skills = "";
     element.skills.forEach((data) => {
       skills += `<p><b>${data}</b></p>`;
-      arr.push(data);
     });
 
     let jobPost = `<div class="job-listing">
@@ -58,76 +57,56 @@ function fetchData() {
       loadData(data);
     });
 }
-if (data.length == 0) {
-  fetchData();
+
+let stringSkills = "";
+for (let i = 0; i < 5; i++) {
+  stringSkills += `<div class="tech-skills" style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10;">${arr[i]}</div> <hr/>`;
 }
+document.getElementById("search-poup").innerHTML = stringSkills;
+let skills = document.querySelector("#search-poup").childNodes;
+Array.from(skills).forEach((element) => {
+  if (element.nodeName === "DIV") {
+    element.addEventListener("click", (e) => {
+      let div = document.createElement("div");
+      div.className = "tech-stack-input";
 
-setTimeout(() => {
-  let stringSkills = "";
-  for (let i = 0; i < 5; i++) {
-    stringSkills += `<div class="tech-skills" style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10;">${arr[i]}</div> <hr/>`;
-  }
-  document.getElementById("search-poup").innerHTML = stringSkills;
-  let skills = document.querySelector("#search-poup").childNodes;
-  // console.log("skills", skills);
-  Array.from(skills).forEach((element) => {
-    if (element.nodeName === "DIV") {
-      element.addEventListener("click", (e) => {
-        if (data.length === 0) {
-          fetchData();
-        }
-        data = data.filter((ele) => {
-          if (ele.skills.includes(e.target.innerHTML)) {
-            return ele;
-          }
-        });
-        loadData(data);
-        let div = document.createElement("div");
-        div.className = "tech-stack-input";
-
-        let button = document.createElement("button");
-        button.innerText = "X";
-        button.style = "height:40%";
-        button.addEventListener("click", () => {
-          div.outerHTML = "";
-          if (data.length === 0) {
-            fetchData();
-          }
-          data = data.filter((ele) => {
-            if (!ele.skills.includes(e.target.innerHTML)) {
-              return ele;
-            }
-          });
-          console.log("onclick", data);
-        });
-
-        let text = document.createElement("p");
-        text.innerText = e.target.innerHTML;
-
-        div.appendChild(text);
-        div.appendChild(button);
-        document.getElementById("search-input1").append(div);
-
-        div.className = "tech-stack-input";
-        togglePopup();
+      let button = document.createElement("button");
+      button.innerText = "X";
+      button.style = "height:40%";
+      button.addEventListener("click", () => {
+        div.outerHTML = "";
         updateContainer();
       });
-    }
-  });
-}, 1000);
+
+      let text = document.createElement("p");
+      text.innerText = e.target.innerHTML;
+
+      div.appendChild(text);
+      div.appendChild(button);
+      document.getElementById("search-input1").append(div);
+
+      div.className = "tech-stack-input";
+      updateContainer();
+      togglePopup();
+    });
+  }
+});
 
 function updateContainer() {
   let allInput = document.getElementById("search-input1").childNodes;
   allInput = Array.from(allInput);
   let out = [];
-
+  if (data.length === 0) {
+    fetchData();
+  }
+  console.log("allinput", allInput);
   for (let j = 0; j < data.length; j++) {
-    let shouldInclude = false;
+    let shouldInclude = true;
     for (let i = 1; i < allInput.length; i++) {
       if (
-        data[j].skills.includes(allInput[i].firstChild.firstChild.nodeValue)
+        !data[j].skills.includes(allInput[i].firstChild.firstChild.nodeValue)
       ) {
-        shouldInclude = true;
+        shouldInclude = false;
         break;
       }
     }
@@ -135,11 +114,13 @@ function updateContainer() {
       out.push(data[j]);
     }
   }
+  console.log("out", out);
   loadData(out);
 }
 
 document.getElementById("clear").addEventListener("click", () => {
   document.getElementById("search-input1").innerHTML = "";
+  updateContainer();
 });
 
 function togglePopup() {
