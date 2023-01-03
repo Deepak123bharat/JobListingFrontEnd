@@ -5,6 +5,7 @@ function loadData(data) {
   let container = document.getElementById("container");
   container.innerHTML = "";
   let containerData = "";
+  console.log("data", data);
   data.forEach((element) => {
     let skills = "";
     element.skills.forEach((data) => {
@@ -54,22 +55,33 @@ function fetchData() {
     .then((response) => response.json())
     .then((json) => {
       data = [...json.jobs];
+      loadData(data);
     });
 }
+if (data.length == 0) {
+  fetchData();
+}
 
-fetch("./data.json")
-  .then((response) => response.json())
-  .then((json) => {
-    data = [...json.jobs];
-    loadData(json.jobs);
-    let stringSkills = "";
-    for (let i = 0; i < 5; i++) {
-      stringSkills += `<div class="tech-skills" style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10;">${arr[i]}</div> <hr/>`;
-    }
-    document.getElementById("search-poup").innerHTML = stringSkills;
-    let skills = document.getElementsByClassName("tech-skills");
-    Array.from(skills).forEach((element) => {
+setTimeout(() => {
+  let stringSkills = "";
+  for (let i = 0; i < 5; i++) {
+    stringSkills += `<div class="tech-skills" style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10;">${arr[i]}</div> <hr/>`;
+  }
+  document.getElementById("search-poup").innerHTML = stringSkills;
+  let skills = document.querySelector("#search-poup").childNodes;
+  // console.log("skills", skills);
+  Array.from(skills).forEach((element) => {
+    if (element.nodeName === "DIV") {
       element.addEventListener("click", (e) => {
+        if (data.length === 0) {
+          fetchData();
+        }
+        data = data.filter((ele) => {
+          if (ele.skills.includes(e.target.innerHTML)) {
+            return ele;
+          }
+        });
+        loadData(data);
         let div = document.createElement("div");
         div.className = "tech-stack-input";
 
@@ -78,14 +90,15 @@ fetch("./data.json")
         button.style = "height:40%";
         button.addEventListener("click", () => {
           div.outerHTML = "";
-
+          if (data.length === 0) {
+            fetchData();
+          }
           data = data.filter((ele) => {
             if (!ele.skills.includes(e.target.innerHTML)) {
               return ele;
             }
           });
-          // loadData(data);
-          updateContainer();
+          console.log("onclick", data);
         });
 
         let text = document.createElement("p");
@@ -96,30 +109,18 @@ fetch("./data.json")
         document.getElementById("search-input1").append(div);
 
         div.className = "tech-stack-input";
-        // +=
-
-        // `<div class="tech-stack-input">
-        //       <p><b>${e.target.innerHTML}<button style="height:100%" onClick="handleCross()">X</button></b></p>
-
-        //     </div>`;
-
-        // loadData(data);
         togglePopup();
         updateContainer();
       });
-    });
+    }
   });
-document.getElementById("clear").addEventListener("click", () => {
-  document.getElementById("search-input1").innerHTML = "";
-  fetchData();
-  updateContainer();
-});
+}, 1000);
 
 function updateContainer() {
   let allInput = document.getElementById("search-input1").childNodes;
   allInput = Array.from(allInput);
   let out = [];
-  fetchData();
+
   for (let j = 0; j < data.length; j++) {
     let shouldInclude = false;
     for (let i = 1; i < allInput.length; i++) {
@@ -136,6 +137,10 @@ function updateContainer() {
   }
   loadData(out);
 }
+
+document.getElementById("clear").addEventListener("click", () => {
+  document.getElementById("search-input1").innerHTML = "";
+});
 
 function togglePopup() {
   if (document.getElementById("search-poup").style.visibility === "visible")

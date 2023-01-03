@@ -10,11 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <title>Job Listing</title>
     <!-- <script type="application/json" src="./Scripts/index.js"></script> -->
-    <script src="./scripts/index.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body onclick="togglePoup()">
+<body>
     <img src="./Images/header.jpg" alt="header" style="width:100vw">
 
 
@@ -37,25 +36,16 @@
 </body>
 <script>
     document.querySelector("#search-input1").addEventListener("click", (e) => {
-        console.log("hi")
         if (document.getElementById("search-poup").style.visibility === "hidden")
             document.getElementById("search-poup").style.visibility = "visible";
         else {
             document.getElementById("search-poup").style.visibility = "hidden";
-
         }
 
     });
-    document.getElementById("clear").addEventListener("click", () => {
-        document.getElementById("search-input1").innerHTML = "";
-    });
-    function togglePoup() {
-        // console.log("hi")
-        // if (document.getElementById("search-poup").style.visibility === "visible")
-        //     document.getElementById("search-poup").style.visibility = "hidden";
 
-    }
 </script>
 
+<script src="./scripts/index.js"></script>
 
 </html>
