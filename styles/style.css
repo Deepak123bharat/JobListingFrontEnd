@@ -25,32 +25,40 @@ body {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-#search_input1:hover{
+
+
+#search_input1:hover {
     background-color: red;
     cursor: pointer;
 }
 
 
-#container{
+#container {
     display: "flex";
     flex-direction: "column";
-    gap:30px;
+    gap: 30px;
     width: 80%;
-    margin:auto;
+    margin: auto;
     /* padding:; */
 }
 
-#cont{
+#cont {
     display: "flex";
     flex-direction: "column";
-    gap:30px;
+    gap: 30px;
     width: 80%;
-    margin:auto;
+    margin: auto;
     /* padding:; */
-}   
+}
 
-#search-poup{
-    width:50vw; height:50vh; background-color:whilte; z-index: 2; position: absolute; margin-top:18px; visibility: visible;
+#search-poup {
+    width: 50vw;
+    height: 50vh;
+    background-color: whilte;
+    z-index: 2;
+    position: absolute;
+    margin-top: 18px;
+    visibility: visible;
 }
 
 .job-listing {
@@ -61,14 +69,15 @@ body {
     background-color: #ffffff;
     margin: auto;
     padding: 20px;
-    margin-top:30px;
-    margin-bottom:30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     font-size: small;
     line-height: 4px;
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
+
 .job-listing:hover {
     border-left: 7px solid var(--main-color);
 
@@ -93,30 +102,44 @@ body {
 .job-tag {
     display: flex;
     gap: 9%;
-    width:50%;
+    width: 50%;
     font-weight: 600;
 }
+
 #new {
-    background:#7cabad; 
-    border-radius:20px; 
+    background: #7cabad;
+    border-radius: 20px;
     width: 30%;
-    color:white; 
+    color: white;
     /* padding: 10%; */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
 }
+
 #featured {
-    background:var(--secondary-color); 
-    border-radius:20px; 
-    color:white; 
+    background: var(--secondary-color);
+    border-radius: 20px;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60%;
     padding: 10px;
 }
+
+.poup-skills {
+    width: 90%;
+    padding: 8px;
+    border-radius: 8px;
+    height: 10px;
+    background-color: white;
+    z-index: 10;
+    color: #7cabad;
+    cursor: pointer;
+}
+
 
 .tech-stack {
     display: flex;
@@ -134,24 +157,28 @@ body {
     color: #7cabad;
     border-radius: 5px;
 }
+
 .tech-stack-input>button {
     /* display: flex;
     align-items: center;
     justify-content: center; */
     background-color: var(--main-color);
     border: none;
-    padding:5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
     width: 30px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 
 }
+
 .tech-stack-input>button:hover {
     background-color: #2D393A;
     color: white;
-    
+    cursor: pointer;
+
 }
-.tech-stack-input > b{
+
+.tech-stack-input>b {
     border-radius: 20px;
 }
 
@@ -162,10 +189,11 @@ body {
     padding: 10px;
     font-size: medium;
 }
-.tech-stack-input > p {
+
+.tech-stack-input>p {
     background-color: #EEF7F6;
     color: #7cabad;
-    padding:5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
     border-radius: 5px;
 }
 
@@ -185,9 +213,10 @@ body {
     /* background-color: red; */
 
 }
-.company-name{
-    color:#7ba9a7;
-    width:40%;
+
+.company-name {
+    color: #7ba9a7;
+    width: 40%;
 }
 
 
@@ -195,7 +224,7 @@ body {
     display: flex;
     flex-direction: column;
     width: auto;
-    width:30%;
+    width: 30%;
 }
 
 .details-top {
@@ -208,7 +237,7 @@ body {
 }
 
 .position-type:hover {
-    color:#7ba9a7;
+    color: #7ba9a7;
     cursor: pointer;
     /* font-size: 22px; */
 }
@@ -220,7 +249,8 @@ body {
     font-size: 15px;
     font-weight: 600;
 }
-.details-bottom > p{
+
+.details-bottom>p {
     height: 100%;
 }
 
@@ -233,126 +263,145 @@ body {
     /* margin-bottom: 50px; */
 }
 
- /* Media Query for Mobile Devices */
- @media (max-width: 480px) {
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
 
 
-    .job-listing{
+    .job-listing {
         height: auto;
         flex-direction: column;
         align-items: flex-start;
-        gap:0px;
-        margin-top:50px;
+        gap: 0px;
+        margin-top: 50px;
     }
-    .job-listing-innerdiv{
+
+    .job-listing-innerdiv {
         flex-direction: column;
         align-items: flex-start;
     }
-    .details{
+
+    .details {
         width: 100%;
     }
-    .tech-stack{
+
+    .tech-stack {
         width: 100%;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
-    .tech-stack > p{
+
+    .tech-stack>p {
         padding: 10px;
     }
-    .job-listing-img{
+
+    .job-listing-img {
         margin-left: -2%;
         margin-top: -17%;
         width: 20%;
     }
-    #hr{
+
+    #hr {
         display: block;
         margin-top: 15px;
-        border-bottom: 1px solid grey;;
+        border-bottom: 1px solid grey;
+        ;
     }
 
 }
-  
+
 /* Media Query for low resolution  Tablets, Ipads */
 @media (min-width: 481px) and (max-width: 767px) {
 
 
-    
-    .job-listing{
+
+    .job-listing {
         height: auto;
         flex-direction: column;
         align-items: flex-start;
-        gap:0px;
-        margin-top:100px;
+        gap: 0px;
+        margin-top: 100px;
     }
-    .job-listing-innerdiv{
+
+    .job-listing-innerdiv {
         flex-direction: column;
         align-items: flex-start;
     }
-    .details{
+
+    .details {
         width: 100%;
     }
-    .tech-stack{
+
+    .tech-stack {
         width: 100%;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
-    .tech-stack > p{
+
+    .tech-stack>p {
         padding: 10px;
     }
-    .job-listing-img{
+
+    .job-listing-img {
         margin-left: -2%;
         margin-top: -17%;
         width: 20%;
     }
-    #hr{
+
+    #hr {
         display: block;
         margin-top: 15px;
-        border-bottom: 1px solid grey;;
+        border-bottom: 1px solid grey;
+        ;
     }
 
 }
-  
+
 /* Media Query for Tablets Ipads portrait mode */
-@media (min-width: 768px) and (max-width: 1024px){
-    .job-listing{
+@media (min-width: 768px) and (max-width: 1024px) {
+    .job-listing {
         height: auto;
         flex-direction: column;
         align-items: flex-start;
-        gap:0px;
-        margin-top:100px;
+        gap: 0px;
+        margin-top: 100px;
     }
-    .job-listing-innerdiv{
+
+    .job-listing-innerdiv {
         flex-direction: column;
         align-items: flex-start;
     }
-    .details{
+
+    .details {
         width: 100%;
     }
-    .tech-stack{
+
+    .tech-stack {
         width: 100%;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
-    .tech-stack > p{
+
+    .tech-stack>p {
         padding: 10px;
     }
-    .job-listing-img{
+
+    .job-listing-img {
         margin-left: -2%;
         margin-top: -13%;
         width: 15%;
     }
-    #hr{
+
+    #hr {
         display: block;
         margin-top: 15px;
-        border-bottom: 1px solid grey;;
+        border-bottom: 1px solid grey;
+        ;
     }
 }
-  
+
 /* Media Query for Laptops and Desktops */
-@media (min-width: 1025px) and (max-width: 1280px){
-  
-}
-  
+@media (min-width: 1025px) and (max-width: 1280px) {}
+
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
     body {

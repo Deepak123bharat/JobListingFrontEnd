@@ -60,7 +60,7 @@ function fetchData() {
 
 let stringSkills = "";
 for (let i = 0; i < 5; i++) {
-  stringSkills += `<div  style="width:90%; padding:8px; border-radius: 8px; height:10px; background-color: white; z-index: 10; color: #7cabad;">${arr[i]}</div> <hr/>`;
+  stringSkills += `<div  class="poup-skills" >${arr[i]}</div> <hr/>`;
 }
 document.getElementById("search-poup").innerHTML = stringSkills;
 let skills = document.querySelector("#search-poup").childNodes;
